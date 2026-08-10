@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaValue Football</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>⚽ AlphaValue Football</h1>
+    <p>AlphaMetri + estadísticas + modelo propio</p>
+  </div>
+  <button id="clearAll" class="secondary">Borrar todo</button>
+</header>
+
+<main>
+<section class="card">
+  <h2>1. Cargar oportunidad de AlphaMetri</h2>
+  <p class="hint">En esta primera versión cargamos manualmente los datos que ves en AlphaMetri. Luego automatizaremos las fuentes.</p>
+  <div class="grid">
+    <label>Partido<input id="match" placeholder="Unión Santa Fe vs Central Córdoba"></label>
+    <label>Competición<input id="competition" placeholder="Liga Profesional Argentina"></label>
+    <label>Mercado<input id="market" placeholder="Central Córdoba +1.25"></label>
+    <label>Línea<input id="line" placeholder="+1.25"></label>
+    <label>Cuota<input id="odds" type="number" step="0.01" placeholder="1.65"></label>
+    <label>Fair odds AlphaMetri<input id="fairOdds" type="number" step="0.01" placeholder="1.33"></label>
+    <label>EV AlphaMetri %<input id="alphaEV" type="number" step="0.1" placeholder="24.3"></label>
+    <label>Score<input id="score" type="number" min="0" max="100" placeholder="83"></label>
+    <label>Match Edge<input id="matchEdge" type="number" min="0" max="100" placeholder="90"></label>
+  </div>
+  <div class="actions">
+    <button id="addOpportunity">Agregar oportunidad</button>
+    <button id="example" class="secondary">Cargar ejemplo</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>2. Oportunidades cargadas</h2>
+  <div id="empty" class="empty">Todavía no cargaste ninguna oportunidad.</div>
+  <div class="tableWrap">
+    <table id="oppsTable">
+      <thead><tr>
+        <th>Partido</th><th>Mercado</th><th>Cuota</th><th>EV Alpha</th><th>Score</th><th>Acción</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>3. Análisis</h2>
+  <p class="hint">Por ahora el modelo usa la información de AlphaMetri. En el siguiente paso conectaremos APWin/StatsHub y añadiremos variables estadísticas.</p>
+  <div id="analysis" class="analysis empty">Seleccioná una oportunidad para analizarla.</div>
+</section>
+
+<section class="card">
+  <h2>4. Resultado del modelo</h2>
+  <div class="metrics">
+    <div><span>Prob. mercado</span><strong id="marketProb">—</strong></div>
+    <div><span>Prob. modelo</span><strong id="modelProb">—</strong></div>
+    <div><span>Cuota justa</span><strong id="modelFair">—</strong></div>
+    <div><span>EV propio</span><strong id="modelEV">—</strong></div>
+    <div><span>Señal</span><strong id="signal">—</strong></div>
+  </div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
